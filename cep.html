@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Endereço</title>
+
+    <script src="cep.js" defer></script>
   </head>
   <body>
     <h1>Busca endereço por CEP</h1>
@@ -12,7 +14,10 @@
       <li>
         Criar um formulário para endereço, com os campos:
         <ul>
-          <li>CEP - obrigatório</li>
+          <li>
+            CEP - obrigatório (não é preciso validar agora, pode assumir que o
+            usuário irá digitar apenas os números)
+          </li>
           <li>Rua - obrigatório</li>
           <li>Número - obrigatório</li>
           <li>Complemento - opcional</li>
@@ -27,12 +32,28 @@
         Conectar essa função ao evento de onChange do campo de CEP e preencer os
         demais campos com os valores
       </li>
-      <li>Tornar os demais campos readonly durante a busca</li>
       <li>
-        Voltar os campos para editáveis caso a busca por cep dê algum erro
+        Tornar os demais campos readonly durante a busca (isso pode estar
+        encapsulado em uma função JS
+      </li>
+      <li>
+        Voltar os campos para editáveis caso a busca por cep dê algum erro (isso
+        também)
       </li>
     </ol>
 
-    <form></form>
+    <form>
+      <label for="cep">CEP</label>
+      <input
+        type="text"
+        name="cep"
+        id="cep"
+        placeholder="Digite seu CEP aqui..."
+      />
+      <br />
+      <label for="rua">Rua</label>
+      <input type="text" name="rua" id="rua" />
+      <br />
+    </form>
   </body>
 </html>
