@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <h1>Meu primeiro form</h1>
+
+    <form method="post">
+      <label for="username">Nome de usuario</label>
+      <input type="text" id="username" name="usuario" required />
+      <br />
+      <label for="password">senha</label>
+      <input type="text" id="password" name="senha" required />
+      <br />
+      <select name="curso" id="curso" required multiple>
+        <option value="">Selecione...</option>
+        <option value="EC">Engenharia de Computação</option>
+        <option value="ADS">Análise e Desenvolvimento de Sistemas</option>
+        <option value="CC">Ciências da Computação</option>
+      </select>
+      <br />
+      <fieldset>
+        <legend>Período</legend>
+        <input type="radio" name="periodo" id="p1" value="p1" />
+        <label for="p1">Manhã</label>
+        <br />
+        <input type="radio" name="periodo" id="p2" value="p2" />
+        <label for="p2">Tarde</label>
+        <br />
+        <input type="radio" name="periodo" id="p3" value="p3" />
+        <label for="p3">Noite</label>
+      </fieldset>
+      <br />
+      <label for="data">Data de nascimento</label>
+      <input type="date" name="data" id="data" />
+      <br />
+      <label for="cor">Escolha uma cor</label>
+      <input type="color" name="cor" id="cor">
+      <br />
+      <button type="submit">Enviar</button>
+      <button type="reset">Limpar</button>
+    </form>
+  </body>
+</html>
