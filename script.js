@@ -1,4 +1,6 @@
-function handleClick(evento) {
+function handleClick(evento, id) {
+  console.log(evento);
+  console.log(id);
   fetchPokemon("pikachu");
 }
 
@@ -49,9 +51,14 @@ function createHtmlForPokemon(objeto) {
 }
 
 function main() {
-  const btn = document.getElementById("btn-1");
+  const btnBuscar = document.getElementById("btn-buscar");
 
-  if (btn !== null) btn.addEventListener("click", handleClick);
+  if (btnBuscar !== null) {
+    btnBuscar.addEventListener("click", (e) =>
+      handleClick(e, "1 - eventlistener")
+    );
+    btnBuscar.onclick = (e) => handleClick(e, "2 - atributo onclick");
+  }
 }
 
 main();
