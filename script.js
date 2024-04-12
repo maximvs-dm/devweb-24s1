@@ -1,29 +1,42 @@
 function handleBuscar(evento, id) {
   console.log(evento);
   console.log(id);
-  fetchPokemon("pikachu");
+
+  const nome = getNameFromInput();
+
+  fetchPokemon(nome, handleCardCreation, alertError);
 }
 
 function handleLimpar(evento, id) {
   console.log(id);
-  container = document.getElementById("pokemon-container");
+  const container = document.getElementById("pokemon-container");
 
-  while (container.children.length > 0) {
-    console.log('limpando', container)
-    container.lastChild.remove();
-  }
+  console.log(container);
+  container.innerHTML = "";
 }
 
-function fetchPokemon(nome) {
-  url = `https://pokeapi.co/api/v2/pokemon/${nome}`;
+function alertError(e) {
+  window.alert("Pokémon não encontrado!");
+}
+
+function getNameFromInput() {
+  const input = document.getElementById("nome");
+  const nome = input.value.toLowerCase();
+  input.value = "";
+  return nome;
+}
+
+function fetchPokemon(nome, handleResponse, handleError) {
+  const url = `https://pokeapi.co/api/v2/pokemon/${nome}`;
 
   fetch(url)
     .then((r) => r.json())
-    .then(handleResponse);
+    .then(handleResponse)
+    .catch(handleError);
 }
 
-function handleResponse(dados) {
-  objeto = {
+function handleCardCreation(dados) {
+  const objeto = {
     nome: dados.name,
     altura: dados.height,
     peso: dados.weight,
@@ -37,19 +50,19 @@ function handleResponse(dados) {
 }
 
 function createHtmlForPokemon(objeto) {
-  myDiv = document.createElement("div");
+  const myDiv = document.createElement("div");
 
-  myImg = document.createElement("img");
+  const myImg = document.createElement("img");
   myImg.alt = "Foto do Pokémon";
   myImg.src = objeto.imagem;
 
-  myH1 = document.createElement("h1");
+  const myH1 = document.createElement("h1");
   myH1.innerText = objeto.nome.toUpperCase();
 
-  myP1 = document.createElement("p");
+  const myP1 = document.createElement("p");
   myP1.innerText = `Altura: ${objeto.altura}`;
 
-  myP2 = document.createElement("p");
+  const myP2 = document.createElement("p");
   myP2.innerText = `Peso: ${objeto.peso}`;
 
   myDiv.appendChild(myH1);
