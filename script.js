@@ -8,9 +8,9 @@ function handleLimpar(evento, id) {
   console.log(id);
   container = document.getElementById("pokemon-container");
 
-  for (let elemento of container.children) {
-    console.log('limpando')
-    elemento.remove();
+  while (container.children.length > 0) {
+    console.log('limpando', container)
+    container.lastChild.remove();
   }
 }
 
