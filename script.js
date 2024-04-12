@@ -57,7 +57,7 @@ function fetchPokemon(nome, handleResponse, handleError) {
 }
 
 function handleBuscar(evento, id) {
-  console.log(evento);
+  evento.preventDefault();
   console.log(id);
 
   const nome = getNameFromInput();
