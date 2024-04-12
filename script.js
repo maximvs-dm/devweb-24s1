@@ -1,20 +1,3 @@
-function handleBuscar(evento, id) {
-  console.log(evento);
-  console.log(id);
-
-  const nome = getNameFromInput();
-
-  fetchPokemon(nome, handleCardCreation, alertError);
-}
-
-function handleLimpar(evento, id) {
-  console.log(id);
-  const container = document.getElementById("pokemon-container");
-
-  console.log(container);
-  container.innerHTML = "";
-}
-
 function alertError(e) {
   window.alert("Pokémon não encontrado!");
 }
@@ -24,29 +7,6 @@ function getNameFromInput() {
   const nome = input.value.toLowerCase();
   input.value = "";
   return nome;
-}
-
-function fetchPokemon(nome, handleResponse, handleError) {
-  const url = `https://pokeapi.co/api/v2/pokemon/${nome}`;
-
-  fetch(url)
-    .then((r) => r.json())
-    .then(handleResponse)
-    .catch(handleError);
-}
-
-function handleCardCreation(dados) {
-  const objeto = {
-    nome: dados.name,
-    altura: dados.height,
-    peso: dados.weight,
-    imagem: dados.sprites.front_default,
-  };
-
-  const card = createHtmlForPokemon(objeto);
-
-  const envelope = document.getElementById("pokemon-container");
-  envelope.appendChild(card);
 }
 
 function createHtmlForPokemon(objeto) {
@@ -71,6 +31,46 @@ function createHtmlForPokemon(objeto) {
   myDiv.appendChild(myP2);
 
   return myDiv;
+}
+
+function handleCardCreation(dados) {
+  const objeto = {
+    nome: dados.name,
+    altura: dados.height,
+    peso: dados.weight,
+    imagem: dados.sprites.front_default,
+  };
+
+  const card = createHtmlForPokemon(objeto);
+
+  const envelope = document.getElementById("pokemon-container");
+  envelope.appendChild(card);
+}
+
+function fetchPokemon(nome, handleResponse, handleError) {
+  const url = `https://pokeapi.co/api/v2/pokemon/${nome}`;
+
+  fetch(url)
+    .then((r) => r.json())
+    .then(handleResponse)
+    .catch(handleError);
+}
+
+function handleBuscar(evento, id) {
+  console.log(evento);
+  console.log(id);
+
+  const nome = getNameFromInput();
+
+  fetchPokemon(nome, handleCardCreation, alertError);
+}
+
+function handleLimpar(evento, id) {
+  console.log(id);
+  const container = document.getElementById("pokemon-container");
+
+  console.log(container);
+  container.innerHTML = "";
 }
 
 function main() {
