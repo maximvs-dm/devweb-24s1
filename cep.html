@@ -29,7 +29,7 @@
         Criar uma função JS que recebe um CEP e busca os dados na api da viacep
       </li>
       <li>
-        Conectar essa função ao evento de onChange do campo de CEP e preencer os
+        Conectar essa função ao evento de `keyup` do campo de CEP e preencer os
         demais campos com os valores
       </li>
       <li>
@@ -42,18 +42,26 @@
       </li>
     </ol>
 
-    <form>
+    <form method="post">
       <label for="cep">CEP</label>
       <input
-        type="text"
-        name="cep"
         id="cep"
+        name="zipcode"
         placeholder="Digite seu CEP aqui..."
+        required
       />
-      <br />
       <label for="rua">Rua</label>
-      <input type="text" name="rua" id="rua" />
-      <br />
+      <input id="rua" name="street" required />
+      <label for="numero">Numero</label>
+      <input id="numero" name="number" required />
+      <label for="complemento">Complemento</label>
+      <input id="complemento" name="complement" />
+      <label for="bairro">Bairro</label>
+      <input id="bairro" name="neighborhood" required />
+      <label for="cidade">Cidade</label>
+      <input id="cidade" name="city" required />
+
+      <button type="submit">Enviar</button>
     </form>
   </body>
 </html>
