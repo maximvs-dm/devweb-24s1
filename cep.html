@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Endereço</title>
 
+    <link rel="stylesheet" href="cep.css" />
     <script src="cep.js" defer></script>
   </head>
   <body>
@@ -43,26 +44,50 @@
       </li>
     </ol>
 
-    <form method="post">
-      <label for="cep">CEP</label>
-      <input
-        id="cep"
-        name="zipcode"
-        placeholder="Digite seu CEP aqui..."
-        required
-      />
-      <label for="rua">Rua</label>
-      <input id="rua" name="street" required />
-      <label for="numero">Numero</label>
-      <input id="numero" name="number" required />
-      <label for="complemento">Complemento</label>
-      <input id="complemento" name="complement" />
-      <label for="bairro">Bairro</label>
-      <input id="bairro" name="neighborhood" required />
-      <label for="cidade">Cidade</label>
-      <input id="cidade" name="city" required />
-      <label for="estado">Estado</label>
-      <input id="estado" name="state" required />
+    <form method="post" id="address-form">
+      <div id="cep-field" class="form-field">
+        <label for="cep">CEP</label>
+        <input
+          id="cep"
+          name="zipcode"
+          placeholder="Digite seu CEP aqui..."
+          required
+        />
+      </div>
+
+      <div class="form-section">
+        <div class="form-field">
+          <label for="rua">Rua</label>
+          <input id="rua" name="street" required />
+        </div>
+
+        <div class="form-field">
+          <label for="numero">Numero</label>
+          <input id="numero" name="number" required />
+        </div>
+
+        <div class="form-field">
+          <label for="complemento">Complemento</label>
+          <input id="complemento" name="complement" />
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-field">
+          <label for="bairro">Bairro</label>
+          <input id="bairro" name="neighborhood" required />
+        </div>
+
+        <div class="form-field">
+          <label for="cidade">Cidade</label>
+          <input id="cidade" name="city" required />
+        </div>
+
+        <div class="form-field">
+          <label for="estado">Estado</label>
+          <input id="estado" name="state" required />
+        </div>
+      </div>
 
       <button type="submit">Enviar</button>
     </form>
